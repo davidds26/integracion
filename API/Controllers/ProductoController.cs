@@ -27,7 +27,7 @@ namespace API.Controllers
             var lista = await _context.Productos
                     .Include(c => c.Categoria)
                     .Include(m => m.Marca)
-                    .Include(o => o.Promocion)
+                    .Include(x => x.Promocion)
                     .Select(p => new ProductoDto
                     {
                         NombreProducto = p.NombreProducto,
@@ -53,7 +53,7 @@ namespace API.Controllers
             var producto = await _context.Productos
                     .Include(c => c.Categoria)
                     .Include(m => m.Marca)
-                    .Include(o => o.Promocion)
+                    .Include(x => x.Promocion)
                     .FirstOrDefaultAsync(p => p.Id == id);
 
             if (producto is null)
